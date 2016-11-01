@@ -1,8 +1,8 @@
-export function registerRules(data, props) {
+export function formRules(data) {
     const errors = {};
 
     ['First_name', 'Last_name', 'Email', 'Password'].forEach(field => {
-        let lowerCaseField = field.toLowerCase()
+        let lowerCaseField = field.toLowerCase();
         if (!data[lowerCaseField]) {
             errors[lowerCaseField] = field.replace('_', ' ') + ' is required';
         }

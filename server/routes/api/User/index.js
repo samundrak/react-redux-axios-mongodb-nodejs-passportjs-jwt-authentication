@@ -45,13 +45,13 @@ module.exports = {
         User.exists({email: req.body.email})
             .then(() => {
                 return req.error({
-                    message: 'Email already exists'
+                    message: ['Email already exists']
                 }, 422);
 
             }, () => {
                 register(req.body)
                     .then(
-                        docs => req.success(docs),
+                        user => req.success(user),
                         error => req.error(error)
                     );
             });

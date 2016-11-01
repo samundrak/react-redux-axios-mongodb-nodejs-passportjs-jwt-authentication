@@ -25,7 +25,7 @@ module.exports = ({email, password, first_name, last_name}) => {
                 });
             }
 
-            user = global._.omit(user, ['password']);
+            user = global._.pick(user, ['_id']);
             return resolve(user);
         });
     });

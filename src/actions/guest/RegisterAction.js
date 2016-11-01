@@ -1,22 +1,7 @@
-import {CREATE_USER, CREATE_USER_FAILED, CREATE_USER_SUCCESS} from '../const';
-import axios from 'axios';
+import { CREATE_USER_FAILED, CREATE_USER_SUCCESS} from '../const';
 
-export function createUser(user) {
-    console.log('i am here for a reason');
-    const payload = axios({
-        url: 'http://localhost:3000/register',
-        method: 'post',
-        data: user
-    });
-    
-    return {
-        type: CREATE_USER,
-        user,
-        payload
-    };
-}
 
-export function registerSuccess(user) {
+export function registerSuccess(user, dispatch) {
     return {
         type: CREATE_USER_SUCCESS,
         user
@@ -25,6 +10,8 @@ export function registerSuccess(user) {
 
 export function registerError(error) {
     return {
-        type: CREATE_USER_FAILED
+        type: CREATE_USER_FAILED,
+        errors: error
     };
 }
+

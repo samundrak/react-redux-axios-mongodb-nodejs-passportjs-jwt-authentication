@@ -7,13 +7,20 @@ import {Router, hashHistory} from 'react-router';
 import routes from './Routes';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import './styles/styles.css';
-import userStore from './store/guest/User';
+import '../node_modules/pace-progress/themes/blue/pace-theme-barber-shop.css';
+import ReduxToastr from 'react-redux-toastr'
 
 
-const store = configureStore(userStore);
+const store = configureStore();
 render(
     <Provider store={store}>
-        <Router history={hashHistory} routes={routes}/>
+        <div>
+            <Router history={hashHistory} routes={routes}/>
+            <ReduxToastr
+                timeOut={4000}
+                newestOnTop={false}
+                position="top-right"/>
+        </div>
     </Provider>,
     document.getElementById('app')
 );

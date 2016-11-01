@@ -14,7 +14,7 @@ module.exports = (username, password) => {
         }).then(user => {
 
             if (!user.status) {
-                return reject('Your account is not active');
+                return reject(`Your account is not active, Please check your email ${user.email}`);
             }
 
             if (!bcrypt.compareSync(password, user.password)) {

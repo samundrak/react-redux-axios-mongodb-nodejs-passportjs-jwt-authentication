@@ -1,7 +1,6 @@
 import React from 'react';
-import {Field, reduxForm} from 'redux-form';
+import {Field} from 'redux-form';
 import {Link} from 'react-router';
-import {registerRules} from '../../Utils/ValidationRules';
 import renderField from '../common/Field';
 
 class RegisterForm extends React.Component {
@@ -9,10 +8,9 @@ class RegisterForm extends React.Component {
     constructor() {
         super();
     }
-
+    
     render() {
         const {handleSubmit, submitting} = this.props;
-
         return (
             <div className="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
                 <form role="form" name="register" method="post"
@@ -63,11 +61,4 @@ class RegisterForm extends React.Component {
     }
 }
 
-// Decorate the form component
-const Form = reduxForm({
-    form: 'register', // a unique name for this form
-    fields: ['first_name', 'last_name', 'email', 'password'],
-    validate: registerRules
-})(RegisterForm);
-
-export default Form;
+export default RegisterForm;

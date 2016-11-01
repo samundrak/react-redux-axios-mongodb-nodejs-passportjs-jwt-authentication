@@ -31,6 +31,7 @@ app.use(bodyParser.urlencoded({extended: false}));
 app.use(expressValidator());
 app.use(cookieParser());
 app.use(auth.initialize());
+app.use(express.static(path.join(__dirname, 'public')));
 app.use((req, res, next)=> {
     req.error = (data, httpCode)=> {
         console.log(data)
@@ -52,8 +53,8 @@ app.use(require('webpack-dev-middleware')(compiler, {
 // view engine setup
 app.set('views', path.join(__dirname, './server/views'));
 app.set('view engine', 'jade');
-app.use('/', routes);
 app.use('/api', auth.authenticate(), require('./server/routes/api'));
+app.use('/', routes);
 
 app.use(require('webpack-hot-middleware')(compiler));
 // catch 404 and forward to error handler
