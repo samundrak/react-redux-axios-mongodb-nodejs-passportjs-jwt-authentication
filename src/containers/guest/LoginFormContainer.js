@@ -22,6 +22,9 @@ const loginUser = (user, dispatch)=> {
 
                 toast('You have been logged in.');
                 dispatch(loginSuccess({user, token: response.data.token}));
+                setTimeout(() => {
+                    window.location.href = '/app';
+                },2000);
 
                 return resolve();
             }, (err)=> {
@@ -35,6 +38,5 @@ export default reduxForm({
     form: 'LoginForm',
     fields: ['email', 'password'],
     validate: formRules,
-    onSubmit: loginUser,
-    // initialValues :
+    onSubmit: loginUser
 })(LoginForm);

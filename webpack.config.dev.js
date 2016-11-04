@@ -6,16 +6,21 @@ module.exports = {
     debug: true,
     devtool: 'cheap-module-eval-source-map',
     noInfo: false,
-    entry: [
-        'eventsource-polyfill', // necessary for hot reloading with IE
-        'webpack-hot-middleware/client?reload=true', //note that it reloads the page if hot module reloading fails.
-        path.resolve(__dirname, 'src/index')
-    ],
+    entry: {
+        guest: ['eventsource-polyfill', // necessary for hot reloading with IE
+            'webpack-hot-middleware/client?reload=true', //note that it reloads the page if hot module reloading fails.
+            path.resolve(__dirname, 'src/index')],
+        app: [
+            'eventsource-polyfill', // necessary for hot reloading with IE
+            'webpack-hot-middleware/client?reload=true', //note that it reloads the page if hot module reloading fails.
+            path.resolve(__dirname, 'src/app/index')
+        ]
+    },
     target: 'web',
     output: {
         path: __dirname + '/dist', // Note: Physical files are only output by the production build task `npm run build`.
         publicPath: '/',
-        filename: 'bundle.js'
+        filename: '[name].js'
     },
     devServer: {
         contentBase: path.resolve(__dirname, 'src')

@@ -1,8 +1,14 @@
+/*
+ global Savetodrive
+ */
 import axios from 'axios';
-export  default  function api() {
+export  function api() {
     return axios.create({
         baseURL: 'http://localhost:3000/api/',
-        timeout: 1000
+        timeout: 5000,
+        headers: {
+            'Authorization': 'JWT ' + Savetodrive.getToken()
+        }
     });
 }
 

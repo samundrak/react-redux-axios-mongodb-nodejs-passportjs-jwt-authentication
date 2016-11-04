@@ -1,9 +1,9 @@
 import React, {PropTypes}  from 'react';
-const renderField = ({input, label, type, meta: {touched, error, warning}}) => (
+const renderField = ({input, label, type, disabled, meta: {touched, error, warning}}) => (
     <div>
         <label>{label}</label>
         <div>
-            <input {...input} placeholder={label} type={type} className="form-control input-lg"/>
+            <input {...input} disabled={disabled} placeholder={label} type={type} className="form-control input-lg"/>
             {touched && ((error && <div className="alert alert-danger formError">{error}</div>)
             ||
             (warning && <span>{warning}</span>))}

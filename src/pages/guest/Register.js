@@ -9,14 +9,6 @@ import toast from '../../Utils/Toast';
 
 class Register extends React.Component {
 
-    renderError(errors) {
-        if (errors.length) {
-            return (
-                <Error messages={errors}></Error>
-            );
-        }
-    }
-
     componentWillReceiveProps(nextProps) {
         let user = nextProps.register.user;
         if (nextProps.register.status && user._id) {
@@ -26,6 +18,14 @@ class Register extends React.Component {
                 password: user.password
             });
             this.context.router.push('/login');
+        }
+    }
+
+    renderError(errors) {
+        if (errors.length) {
+            return (
+                <Error messages={errors}/>
+            );
         }
     }
 

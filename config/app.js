@@ -12,7 +12,10 @@ module.exports = {
     auth: {
         jwt: {
             secret: 'wqaML5KIBh',
-            session: {session: false}
+            session: {
+                session: false,
+                expiresIn: 10,
+            }
         }
     }
 }

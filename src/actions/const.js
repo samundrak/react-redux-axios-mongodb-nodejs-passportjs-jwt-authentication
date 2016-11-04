@@ -6,3 +6,4 @@ export const USER_LOG_IN_SUCCESS = 'USER_LOG_IN_SUCCESS';
 export const USER_LOG_IN_FAILED = 'USER_LOG_IN_FAILED';
 export const RESET_FIELD = 'RESET_FIELD';
 export const USER_CAN_LOG_IN = 'USER_CAN_LOG_IN';
+export const STORE_TOKEN = 'STORE_TOKEN';

@@ -7,6 +7,9 @@ module.exports = () => {
         res.render('guest');
     });
 
+    router.get('/app', function (req, res) {
+        res.render('app');
+    });
     router.post('/login', user.login);
     router.post('/register', user.register);
     router.get('/verify/:hash', user.verifyHash);
