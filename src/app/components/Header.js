@@ -12,16 +12,6 @@ const Header = () => {
                 </div>
                 <ul className="nav navbar-nav navbar-right">
                     <li>
-                        <Link to="/upload" activeClassName="active">
-                            Upload
-                        </Link>
-                    </li>
-                    <li>
-                        <Link to="/history" activeClassName="active">
-                            History
-                        </Link>
-                    </li>
-                    <li>
                         <Link to="/me" activeClassName="active">
                             Me
                         </Link>
